@@ -99,3 +99,30 @@ html.lenis body {
     transform: scaleX(0);
   }
 }
+
+/* ---- Header over light (cream) sections ----
+   BrandStory sets data-header-tone="light" on <html> while the cream section is
+   under the fixed header. Unlayered rules beat Tailwind utilities, so no !important. */
+html[data-header-tone="light"] [data-site-header] > a:first-child {
+  color: var(--forest);
+}
+html[data-header-tone="light"] [data-site-header] > a:first-child span {
+  color: var(--coral);
+}
+html[data-header-tone="light"] [data-site-header] > a:last-child {
+  color: var(--forest);
+  border-color: rgb(16 28 23 / 0.35);
+  background-color: rgb(244 240 230 / 0.7);
+}
+html[data-header-tone="light"] [data-site-header] > a:last-child:hover {
+  background-color: var(--lime);
+  border-color: var(--forest);
+  color: var(--forest);
+}
+html[data-header-tone="light"] [data-site-header] {
+  background-image: none;
+  background-color: rgb(244 240 230 / 0.82);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
