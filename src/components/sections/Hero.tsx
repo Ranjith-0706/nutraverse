@@ -65,6 +65,12 @@ export default function Hero() {
           { y: 14, autoAlpha: 0 },
           { y: 0, autoAlpha: 1, duration: 0.7, stagger: 0.07 },
           0.6,
+        )
+        .fromTo(
+          "[data-site-header]",
+          { y: -12, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.7 },
+          0.6,
         );
     };
 
@@ -109,6 +115,12 @@ export default function Hero() {
           "[data-hero-fade]",
           { y: 24, autoAlpha: 0 },
           { y: 0, autoAlpha: 1, duration: 1, stagger: 0.1 },
+          1.5,
+        )
+        .fromTo(
+          "[data-site-header]",
+          { y: -16, autoAlpha: 0 },
+          { y: 0, autoAlpha: 1, duration: 0.9 },
           1.5,
         )
         .fromTo(
