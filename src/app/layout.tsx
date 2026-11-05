@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 import SmoothScrollProvider from "@/components/animations/SmoothScrollProvider";
 import "./globals.css";
 
@@ -31,6 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SmoothScrollProvider>
           <Header />
           {children}
+          <Footer />
         </SmoothScrollProvider>
       </body>
     </html>

@@ -24,7 +24,8 @@ export default function BrandStory() {
     const st = ScrollTrigger.create({
       trigger: root.current,
       start: "top 40px",
-      end: "bottom 40px",
+      // The dark global section overlaps the cream bottom, so flip the header when its top (not the cream bottom) reaches the bar.
+      end: () => `bottom ${40 + (window.innerWidth >= 768 ? 80 : 40)}px`,
       onToggle: (self) => {
         if (self.isActive) html.dataset.headerTone = "light";
         else delete html.dataset.headerTone;

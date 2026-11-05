@@ -25,6 +25,8 @@ export default function SmoothScrollProvider({
     const instance = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
+      // Smooth in-page #anchor links (e.g. Request Export Quote), offset for the fixed header.
+      anchors: { offset: -88 },
     });
 
     // Keep ScrollTrigger in sync with Lenis' virtual scroll.

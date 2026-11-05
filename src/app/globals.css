@@ -69,6 +69,11 @@ html.lenis body {
 }
 
 /* ---- Hero ---- */
+@keyframes drift {
+  from { transform: translate3d(0, 0, 0) scale(1); }
+  to { transform: translate3d(8%, 10%, 0) scale(1.15); }
+}
+
 .grain::after {
   content: "";
   position: absolute;

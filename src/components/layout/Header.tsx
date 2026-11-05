@@ -5,7 +5,7 @@ export default function Header() {
     <header
       // Revealed by the homepage hero intro; plain and visible on other routes.
       data-site-header
-      className="fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-gradient-to-b from-forest/80 to-transparent px-5 py-4 md:bg-none md:px-12 md:py-7"
+      className="fixed inset-x-0 top-0 z-50 flex items-center justify-between bg-forest/85 px-5 py-4 backdrop-blur-md md:bg-transparent md:backdrop-blur-none md:px-12 md:py-7"
     >
       <Link
         href="/"

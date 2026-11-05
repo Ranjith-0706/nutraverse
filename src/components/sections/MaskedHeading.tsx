@@ -1,0 +1,37 @@
+interface Word {
+  text: string;
+  accent?: "lime" | "coral";
+}
+
+const accent = { lime: "text-lime", coral: "text-coral" } as const;
+
+/** Word-masked heading. Animated by the parent through [data-mh-word]. */
+export default function MaskedHeading({
+  id,
+  words,
+  className = "",
+}: {
+  id?: string;
+  words: readonly Word[];
+  className?: string;
+}) {
+  const text = words.map((w) => w.text).join(" ");
+  return (
+    <h2 id={id} data-mh aria-label={text} className={className}>
+      {words.map((w, i) => (
+        <span
+          key={`${w.text}-${i}`}
+          aria-hidden="true"
+          className="mr-[0.22em] inline-block overflow-hidden pb-[0.2em] align-bottom"
+        >
+          <span
+            data-mh-word
+            className={`inline-block ${w.accent ? accent[w.accent] : ""}`}
+          >
+            {w.text}
+          </span>
+        </span>
+      ))}
+    </h2>
+  );
+}
