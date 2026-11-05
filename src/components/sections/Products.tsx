@@ -81,7 +81,7 @@ export default function Products() {
 
     // Mobile + motion allowed: simple reveal on scroll.
     mm.add(
-      "(max-width: 767px) and (prefers-reduced-motion: no-preference)",
+      "(max-width: 767.98px) and (prefers-reduced-motion: no-preference)",
       () => {
         gsap.from("[data-products-head] > *", {
           y: 30,
