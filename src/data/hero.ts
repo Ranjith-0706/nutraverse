@@ -8,4 +8,10 @@ export const heroContent = {
   secondaryCta: { label: "Get in touch", href: "#contact" },
   video: "/videos/hero-loop.mp4",
   poster: "/images/hero-poster.png",
+  // Placeholder featured product card - label is not a real product name.
+  featured: {
+    image: "/images/product-1.png",
+    label: "Featured product",
+    caption: "Placeholder",
+  },
 } as const;
