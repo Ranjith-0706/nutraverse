@@ -82,7 +82,7 @@ html.lenis body {
 /* Pre-animation states (only when motion is allowed) so there is no flash before GSAP runs. */
 @media (prefers-reduced-motion: no-preference) {
   [data-hero-char] {
-    transform: translateY(115%);
+    opacity: 0;
   }
   [data-hero-media] {
     clip-path: inset(16% 28% 16% 28% round 28px);

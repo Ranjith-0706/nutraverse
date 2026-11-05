@@ -58,8 +58,8 @@ export default function Hero() {
         )
         .fromTo(
           "[data-hero-char]",
-          { yPercent: 115, rotate: 6 },
-          { yPercent: 0, rotate: 0, duration: 1.2, stagger: 0.018 },
+          { yPercent: 115, rotate: 6, autoAlpha: 1 },
+          { yPercent: 0, rotate: 0, autoAlpha: 1, duration: 1.2, stagger: 0.018 },
           1.0,
         )
         .fromTo(
@@ -180,7 +180,7 @@ export default function Hero() {
 
         <h1
           aria-label={headline.join(" ")}
-          className="font-display text-(length:--text-display) font-semibold leading-[0.92] tracking-tight text-cream md:max-w-[9ch] lg:max-w-[11ch]"
+          className="font-display text-(length:--text-h1) font-semibold leading-[0.92] tracking-tight text-cream md:max-w-[10ch] lg:max-w-[12ch]"
         >
           {headline.map((line) => (
             <span key={line} aria-hidden="true" className="block">
@@ -229,7 +229,7 @@ export default function Hero() {
       {/* Floating product card */}
       <div
         data-hero-float
-        className="absolute bottom-24 right-6 z-10 hidden will-change-transform md:right-12 md:block lg:bottom-16"
+        className="absolute bottom-24 right-6 z-10 hidden will-change-transform md:right-12 md:block lg:bottom-28"
       >
         <div
           data-hero-card
