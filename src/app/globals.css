@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --forest: #101c17;
+  --lime: #c6f36b;
+  --coral: #ff794f;
+  --cream: #f4f0e6;
+
+  --background: var(--forest);
+  --foreground: var(--cream);
+}
+
+@theme inline {
+  --color-forest: var(--forest);
+  --color-lime: var(--lime);
+  --color-coral: var(--coral);
+  --color-cream: var(--cream);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-bricolage);
+
+  /* Fluid type scale */
+  --text-display: clamp(3rem, 2rem + 6vw, 9rem);
+  --text-h1: clamp(2.5rem, 1.6rem + 4vw, 6rem);
+  --text-h2: clamp(2rem, 1.4rem + 2.6vw, 4rem);
+  --text-h3: clamp(1.375rem, 1.1rem + 1vw, 2rem);
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.175rem);
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: var(--text-body);
+  line-height: 1.6;
+}
+
+::selection {
+  background: var(--lime);
+  color: var(--forest);
+}
+
+/* Lenis recommended base styles */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
