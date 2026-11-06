@@ -217,9 +217,9 @@ export default function EnquiryForm() {
       onSubmit={onSubmit}
       noValidate
       aria-busy={pending}
-      className="rounded-[2rem] border border-cream/15 bg-cream/[0.04] p-6 md:p-10"
+      className="rounded-[2rem] border border-cream/15 bg-cream/[0.04] p-5 md:p-10"
     >
-      <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2">
+      <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2 md:gap-y-7">
         <Field id="fullName" label="Full name" required error={errors.fullName}>
           <input id="fullName" name="fullName" type="text" autoComplete="name" required maxLength={100}
             value={values.fullName} onChange={(e) => { set("fullName", e.target.value); clearError("fullName"); }}
@@ -265,7 +265,8 @@ export default function EnquiryForm() {
             className={control} />
         </Field>
         <Field id="unit" label="Unit" error={errors.unit}>
-          <select id="unit" name="unit" value={values.unit} onChange={(e) => set("unit", e.target.value)}
+          <select id="unit" name="unit" value={values.unit} onChange={(e) => { set("unit", e.target.value); clearError("unit"); clearError("quantity"); }}
+            onBlur={() => blur("unit")} aria-invalid={invalid("unit")} aria-describedby={describe("unit")}
             className={`${control} ${values.unit ? "" : "text-cream/35"}`}>
             <option value="" className="bg-forest text-cream">Select unit</option>
             {quantityUnits.map((u) => (

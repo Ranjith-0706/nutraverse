@@ -24,7 +24,7 @@ const text = (label: string, max: number) =>
     .min(1, `${label} is required.`)
     .max(max, `${label} must be ${max} characters or fewer.`);
 
-export const enquirySchema = z.object({
+const baseSchema = z.object({
   fullName: text("Full name", 100),
   email: z
     .string()
@@ -39,7 +39,15 @@ export const enquirySchema = z.object({
     .trim()
     .min(1, "Select a product interest.")
     .refine((v) => (productOptions as readonly string[]).includes(v), "Select a product interest from the list."),
-  quantity: z.string().trim().max(30, "Quantity must be 30 characters or fewer.").optional(),
+  quantity: z
+    .string()
+    .trim()
+    .max(30, "Quantity must be 30 characters or fewer.")
+    .refine(
+      (v) => v === "" || (/^\d{1,12}([.,]\d{1,3})?$/.test(v) && Number(v.replace(",", ".")) > 0),
+      "Enter a positive number, for example 500.",
+    )
+    .optional(),
   unit: z.union([z.enum(quantityUnits), z.literal("")]).optional(),
   message: z
     .string()
@@ -49,7 +57,17 @@ export const enquirySchema = z.object({
   consent: z.boolean().refine((v) => v === true, "Please confirm consent to continue."),
 });
 
-export type EnquiryInput = z.infer<typeof enquirySchema>;
+// A quantity needs a unit (and a unit needs a quantity) so enquiries are unambiguous.
+export const enquirySchema = baseSchema.superRefine((d, ctx) => {
+  if (d.quantity && !d.unit) {
+    ctx.addIssue({ code: "custom", path: ["unit"], message: "Select a unit for the quantity." });
+  }
+  if (d.unit && !d.quantity) {
+    ctx.addIssue({ code: "custom", path: ["quantity"], message: "Enter a quantity for the selected unit." });
+  }
+});
+
+export type EnquiryInput = z.infer<typeof baseSchema>;
 export type FieldName = keyof EnquiryInput;
 export type FieldErrors = Partial<Record<FieldName, string>>;
 
