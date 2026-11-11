@@ -9,7 +9,7 @@ import PageCTA from "@/components/sections/PageCTA";
 export const metadata: Metadata = {
   title: "Quality & Standards - Nutraverse",
   description:
-    "Explore the product information and documentation available for review during your enquiry. Demonstration content pending client approval.",
+    "Explore the product information and documentation that may be available for review during your enquiry. Demonstration content pending client approval.",
   // Demo copy: keep out of search indexes until the client approves the content.
   robots: { index: false, follow: true },
 };

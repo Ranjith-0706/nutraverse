@@ -10,7 +10,7 @@ export const qualityContent = {
     eyebrow: "Quality & standards",
     heading: words("Confidence begins with clarity.", ["clarity."]) satisfies HeadingWord[],
     intro:
-      "Explore the product information and documentation available for review during your enquiry.",
+      "Explore the product information and documentation that may be available for review during your enquiry.",
   },
   approach: {
     heading: "Information you may request",
