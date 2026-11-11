@@ -17,7 +17,8 @@ export const site = {
 
 export const footerLinks = [
   { label: "Products", href: "/products" },
-  { label: "About", href: "/#about" },
+  { label: "About", href: "/about" },
+  { label: "Quality", href: "/quality" },
   { label: "Global reach", href: "/#global" },
   { label: "Contact", href: "/#contact" },
 ] as const;

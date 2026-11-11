@@ -104,6 +104,7 @@ export default function ProductDetail({
             {category?.name ?? "Product"}
           </p>
           <MaskedHeading
+            as="h1"
             id="product-heading"
             words={words}
             className="mt-4 font-display text-[clamp(2.25rem,1rem+5.5vw,6rem)] font-semibold leading-[1.02] tracking-tight"

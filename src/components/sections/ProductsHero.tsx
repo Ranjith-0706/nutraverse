@@ -49,6 +49,7 @@ export default function ProductsHero() {
           {catalogueContent.eyebrow}
         </p>
         <MaskedHeading
+          as="h1"
           id="catalogue-heading"
           words={words}
           className="max-w-[14ch] font-display text-[clamp(2.5rem,1rem+8vw,8.5rem)] font-semibold leading-[1.02] tracking-tight text-cream md:max-w-[16ch]"

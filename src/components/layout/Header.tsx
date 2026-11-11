@@ -16,13 +16,25 @@ export default function Header() {
       </Link>
       <Link
         href="/products"
-        className="ml-auto mr-3 hidden min-h-11 items-center px-2 text-sm font-medium text-cream transition-colors hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime min-[400px]:inline-flex md:mr-5"
+        className="ml-auto mr-0.5 inline-flex min-h-11 items-center px-1.5 text-sm min-[400px]:px-2 font-medium text-cream transition-colors hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime min-[400px]:mr-3 md:mr-2"
       >
         Products
       </Link>
       <Link
+        href="/about"
+        className="mr-2 hidden min-h-11 items-center px-2 text-sm font-medium text-cream transition-colors hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime md:inline-flex"
+      >
+        About
+      </Link>
+      <Link
+        href="/quality"
+        className="mr-2 hidden min-h-11 items-center px-2 text-sm font-medium text-cream transition-colors hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime md:inline-flex"
+      >
+        Quality
+      </Link>
+      <Link
         href="/#contact"
-        className="inline-flex min-h-11 items-center rounded-full border border-cream/25 bg-forest/30 px-4 text-sm font-medium text-cream backdrop-blur-md transition-colors duration-300 hover:border-lime hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime md:px-5"
+        className="inline-flex min-h-11 items-center rounded-full border border-cream/25 bg-forest/30 whitespace-nowrap px-2.5 text-[13px] min-[400px]:px-4 min-[400px]:text-sm font-medium text-cream backdrop-blur-md transition-colors duration-300 hover:border-lime hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime md:px-5"
       >
         Get in touch
       </Link>
