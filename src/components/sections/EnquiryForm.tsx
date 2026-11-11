@@ -111,6 +111,23 @@ export default function EnquiryForm() {
   const clearError = (name: FieldName) =>
     errors[name] && setErrors((e) => ({ ...e, [name]: undefined }));
 
+  // Arriving from a product page: /?interest=<category>&product=<name>#enquiry
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search);
+    const interest = q.get("interest");
+    const product = q.get("product");
+    if (!interest && !product) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setValues((v) => ({
+      ...v,
+      productInterest:
+        interest && (productOptions as readonly string[]).includes(interest)
+          ? interest
+          : v.productInterest,
+      message: v.message || (product ? `I am interested in: ${product.slice(0, 100)}.\n\n` : ""),
+    }));
+  }, []);
+
   // Gentle success motion; moves focus to the result for screen readers.
   useEffect(() => {
     if (status !== "sent" && status !== "demo") return;

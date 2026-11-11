@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import type { ProductCategory, ProductTone } from "@/data/products";
+import type { ProductTone } from "@/data/products";
 
 const toneClass: Record<ProductTone, string> = {
   lime: "bg-lime",
@@ -9,8 +9,25 @@ const toneClass: Record<ProductTone, string> = {
   cream: "bg-cream",
 };
 
+/** Display data shared by category cards (homepage) and catalogue product cards. */
+export interface ProductCardData {
+  id: string;
+  href: string;
+  /** Oversized index number, e.g. "01". */
+  index: string;
+  name: string;
+  description: string;
+  image: string;
+  alt: string;
+  tone: ProductTone;
+  /** Small label under the description, e.g. the category or "Demo product". */
+  tag: string;
+  /** CSS object-position for the photo. */
+  imagePosition?: string;
+}
+
 interface ProductCardProps {
-  product: ProductCategory;
+  product: ProductCardData;
   /**
    * Desktop placement inside the showcase: alternate left/right.
    * "full" fills its container (used on the /products index grid).
@@ -31,13 +48,13 @@ export default function ProductCard({
   align = "full",
   sizes = "(min-width: 768px) 56vw, calc(100vw - 40px)",
 }: ProductCardProps) {
-  const { slug, index, name, description, image, alt, tone } = product;
+  const { href, index, name, description, image, alt, tone, tag, imagePosition } = product;
 
   return (
     <article data-product-card className={`w-full ${alignClass[align]}`}>
       <Link
-        href={`/products/${slug}`}
-        aria-label={`${name} - view category`}
+        href={href}
+        aria-label={`${name} - view details`}
         className={`group block rounded-[2rem] p-3 text-forest transition-transform duration-500 ease-out focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-lime md:rounded-[2.5rem] md:p-4 md:hover:-translate-y-1 ${toneClass[tone]}`}
       >
         {/* Product visual: square on mobile so nothing is cropped away */}
@@ -51,6 +68,7 @@ export default function ProductCard({
               alt={alt}
               fill
               sizes={sizes}
+              style={imagePosition ? { objectPosition: imagePosition } : undefined}
               className="object-cover transition-transform duration-700 ease-out md:group-hover:scale-[1.05] md:group-focus-visible:scale-[1.05]"
             />
           </div>
@@ -80,7 +98,7 @@ export default function ProductCard({
               {description}
             </p>
             <span className="mt-4 inline-block rounded-full border border-forest/30 px-3 py-1 text-xs font-medium uppercase tracking-widest">
-              Sample category
+              {tag}
             </span>
           </div>
         </div>

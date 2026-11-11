@@ -114,6 +114,7 @@ html[data-header-tone="light"] [data-site-header] > a:first-child {
 html[data-header-tone="light"] [data-site-header] > a:first-child span {
   color: var(--coral);
 }
+html[data-header-tone="light"] [data-site-header] > a:not(:first-child):not(:last-child) { color: var(--forest); }
 html[data-header-tone="light"] [data-site-header] > a:last-child {
   color: var(--forest);
   border-color: rgb(16 28 23 / 0.35);

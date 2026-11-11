@@ -15,6 +15,12 @@ export default function Header() {
         Nutraverse<span className="text-lime">.</span>
       </Link>
       <Link
+        href="/products"
+        className="ml-auto mr-3 hidden min-h-11 items-center px-2 text-sm font-medium text-cream transition-colors hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime min-[400px]:inline-flex md:mr-5"
+      >
+        Products
+      </Link>
+      <Link
         href="/#contact"
         className="inline-flex min-h-11 items-center rounded-full border border-cream/25 bg-forest/30 px-4 text-sm font-medium text-cream backdrop-blur-md transition-colors duration-300 hover:border-lime hover:text-lime focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lime md:px-5"
       >

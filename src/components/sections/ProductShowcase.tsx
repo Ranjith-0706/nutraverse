@@ -192,7 +192,17 @@ export default function ProductShowcase() {
           {productCategories.map((product, i) => (
             <ProductCard
               key={product.id}
-              product={product}
+              product={{
+                id: product.id,
+                href: `/products?category=${product.slug}`,
+                index: product.index,
+                name: product.name,
+                description: product.description,
+                image: product.image,
+                alt: product.alt,
+                tone: product.tone,
+                tag: "Sample category",
+              }}
               align={i % 2 === 0 ? "start" : "end"}
             />
           ))}
